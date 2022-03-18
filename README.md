@@ -16,3 +16,10 @@ Today I'm going to work on the multiple-choice questions. For this it needs to d
     -Reward choosing the correct answer/punish the wrong answer
 
 I am considering putting the question in an array: the question itself, 4 choices to choose from, and the answer. If i can assign each variable in the array to semantic elements on the HTML, the user can choose which array element is correct. At which point, once the correct answer is chosen, it wil switch to the new array.
+
+## Day_Three
+Yesterday, i ran into a problem.
+
+I assigned temporary questions into an array as an object with properties. Console-logging the specific properties seemed to work, yet I am unable to assign the strings as text-content to the buttons, and I'm unsure why.
+
+I'm going to try and plug away and figure this out. Maybe i need to create button elements with the text-content assigned to them...
