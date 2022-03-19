@@ -1,5 +1,5 @@
 //Other Variables
-var start = document.getElementById('#start');
+var startQuiz = document.getElementById('#startBtn');
 //Timer variables
 var timerEl = document.querySelector(".timer");
 var start = document.getElementById("#start");
@@ -35,14 +35,16 @@ var questionnaire = [
 var questionnaireIndex = questionnaire.length - 1;
 var currQuestionIndex = 0;
 
-//function quizGame() {
-//    var questions = questionnaire[currQuestionIndex];
-//        question.textContent = questions.query;
-//        answerOne.textContent = questions.a;
-//        answerTwo.textContent = questions.b;
-//        answerThree.textContent = questions.c;
-//        answerFour.textContentet = questions.d;
-//    
+function quizGame(event) {
+    event.preventDefault();
+
+    var questions = questionnaire[currQuestionIndex];
+        question.textContent = questions.query;
+        answerOne.textContent = questions.a;
+        answerTwo.textContent = questions.b;
+        answerThree.textContent = questions.c;
+        answerFour.textContentet = questions.d;
+    
 //        document.body.appendChild(question);
  //       console.log(questions.query);
 //};
@@ -82,8 +84,10 @@ console.log(questionnaire[0]);
 console.log(questionnaire[1]);
 
 
-//function startCountdown(event) {
-   // event.preventDefault();
+function startCountdown(event) {
+    event.preventDefault();
+    var countdown = document.querySelector(".countdown");
+    
 
     var timerInterval = setInterval(function() {
         timeLeft--;
@@ -101,5 +105,6 @@ console.log(questionnaire[1]);
         }
 
     }, 1000);    
-//}
+};
 
+startQuiz.addEventListener('click', startCountdown, quizGame);
