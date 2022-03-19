@@ -35,6 +35,25 @@ body h1 {
     box-shadow: 0 0 5px 5px darkslategrey
 }
 
+.scoreBoard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display:none; /* switch to flex to make visible */
+
+
+    flex-flow: column wrap;
+    align-content: stretch;
+    width:75%;
+    font-size:larger;
+    background-color: yellow;
+    padding: 50px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px darkslategray;
+}
 .countdown {
     display: none;
     flex-direction:column;

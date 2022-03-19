@@ -23,3 +23,12 @@ Yesterday, i ran into a problem.
 I assigned temporary questions into an array as an object with properties. Console-logging the specific properties seemed to work, yet I am unable to assign the strings as text-content to the buttons, and I'm unsure why.
 
 I'm going to try and plug away and figure this out. Maybe i need to create button elements with the text-content assigned to them...
+
+## Day_Four
+I have decided to move on from the multiple-choice funstion for now.
+
+Instead, I have plugging away at the CSS, in order for everything to be ready aesthetically.
+
+Next, I have to link up the start button with the rest of the functions so that they actually swap through without refreshing the page.
+
+After a lot of head-scratching, i was finally able to get the multiple-choice questions to cycle through! now that the questions are done, the time is timing, and the style is picked out for the page, the last thing I'll need to do is the local Storage... tomorrow morning.

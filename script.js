@@ -1,17 +1,20 @@
 //Other Variables
-var startQuiz = document.getElementById('#startBtn');
+var startQuiz = document.querySelector('#startBtn');
+var saveBtn = document.querySelector(".saveBtn");
+var playerEl = document.querySelector("#playerEl")
 //Timer variables
 var timerEl = document.querySelector(".timer");
 var start = document.getElementById("#start");
 var timeLeft = 70;
-
+var myInterval = -1
 //Quiz variables
-var question = document.getElementById("#question");
-var answerOne = document.getElementById("#a");
-var answerTwo = document.getElementById("#b");
-var answerThree = document.getElementById("#c");
-var answerFour = document.getElementById("#d");
-var correctAnswer = document.getElementById("#answer");
+var question = document.querySelector("#question");
+var answerOne = document.querySelector("#a");
+var answerTwo = document.querySelector("#b");
+var answerThree = document.querySelector("#c");
+var answerFour = document.querySelector("#d");
+//var correctAnswer = document.querySelector(questionnaire.correct);
+
 
 var questionnaire = [
     {
@@ -20,7 +23,7 @@ var questionnaire = [
         b: "b",
         c: "c",
         d: "d",
-        answer: "a",
+        correct: "a",
     },
     {
         query: "which one is 7?",
@@ -28,83 +31,95 @@ var questionnaire = [
         b: "bt",
         c: "7",
         d: "d",
-        answer: "c",   
+        correct: "c",   
     },
 ];
+var answerSheet = ['a', '7'];
 
 var questionnaireIndex = questionnaire.length - 1;
 var currQuestionIndex = 0;
 
-function quizGame(event) {
+
+
+function quizBox(index) {
     event.preventDefault();
+    document.querySelector('.quiz-container').style.display = 'flex';
 
-    var questions = questionnaire[currQuestionIndex];
-        question.textContent = questions.query;
-        answerOne.textContent = questions.a;
-        answerTwo.textContent = questions.b;
-        answerThree.textContent = questions.c;
-        answerFour.textContentet = questions.d;
-    
-//        document.body.appendChild(question);
- //       console.log(questions.query);
-//};
-
-//function quizGame() {
-//    for (var i=0; i<questionnaire.length; i++) {
-//        question = questionnaire[i].query;
-//        a = questionnaire[i].a;
-//        b = questionnaire[i].b;
-//        c = questionnaire[i].c;
-//        d = questionnaire[i].d;
-//    }    
-//        question.text(prompt);
+        question.innerHTML = questionnaire[currQuestionIndex].query;
+        a.innerHTML = questionnaire[currQuestionIndex].a;
+        b.innerHTML = questionnaire[currQuestionIndex].b;
+        c.innerHTML = questionnaire[currQuestionIndex].c;
+        d.innerHTML = questionnaire[currQuestionIndex].d;
+}    
+answerOne.onclick = function() {
+    if (answerOne.textContent === answerSheet[currQuestionIndex]) {
+        console.log('sexy!');
+        currQuestionIndex++;
+        quizBox(currQuestionIndex);
+    } else {
+        console.log('yuck');
+        timeLeft = timeLeft - 10;
+    }
+}
+answerTwo.onclick = function() {
+    if (answerTwo.textContent === answerSheet[currQuestionIndex]) {
+        console.log('sexy!');
         
-//        console.log(questionnaire[i].query);
-//        console.log(questionnaire[i].a);
-//        console.log(questionnaire[i].b);
-//        console.log(questionnaire[i].c);
- //       console.log(questionnaire[i].d);
-    
-    
-//};
-
-//quizGame();
-
-//var questionOne = ["what are bees?", "Aliens", "Plants", "Insects", "Rocks", "Insects"];
-//var questionTwo = ["Pineapple on pizza?", "Yes!", "No!", "Ew, what?", "I'm calling the cops...", "Yes!"];
-//var questionnaire = [questionOne, questionTwo];
-
-//var optionOne = document.getElementById('#a1')
-//var optionTwo = document.getElementById('#a2')
-//var optionThree = document.getElementById('#a3')
-//var optionFour = document.getElementById('#a4')
-
-console.log(questionnaire)
-console.log(questionnaire[0]);
-console.log(questionnaire[1]);
+    } else {
+        console.log('yuck');
+        timeLeft = timeLeft - 10;
+    }
+}
+    answerThree.onclick = function() {
+    if (answerThree.textContent === answerSheet[currQuestionIndex]) {
+        console.log('sexy!');    
+    } else {
+        console.log('yuck');
+        timeLeft = timeLeft - 10;
+    }
+}
+    answerFour.onclick = function() {
+    if (answerFour.textContent === answerSheet[currQuestionIndex]) {
+        console.log('sexy!');
+    } else {
+        console.log('yuck');
+        timeLeft = timeLeft - 10;
+    }
+}
 
 
-function startCountdown(event) {
+function startCountdown() {
     event.preventDefault();
-    var countdown = document.querySelector(".countdown");
-    
+    document.querySelector('.countdown').style.display = 'flex';
 
     var timerInterval = setInterval(function() {
         timeLeft--;
-
         if (timeLeft > 1) {
-            //console.log(timeLeft + " seconds!");
+            console.log(timeLeft + " seconds!");
             timerEl.textContent = timeLeft;  
         } else if (timeLeft === 1) {
-           // console.log(timeLeft + " second!");
+            console.log(timeLeft + " second!");
             timerEl.textContent = timeLeft;
-        } else if (timeLeft === 0) {
+        } else if (timeLeft <= 0) {
             clearInterval(timerInterval);
-            //console.log("Game Over!");
+            document.querySelector('.quiz-container').style.display = 'none';
+            document.querySelector('.scoreBoard').style.display = 'flex';
+            console.log("Game Over!");
             timerEl.textContent ="Game Over!";
-        }
 
-    }, 1000);    
+        }
+    }, 1000); 
+    
+    if (currQuestionIndex > questionnaire.length) {
+        clearInterval(myInterval)
+    }
 };
 
-startQuiz.addEventListener('click', startCountdown, quizGame);
+
+function letsPlay(event) {
+    event.preventDefault();
+    startCountdown();
+    quizBox();
+};
+
+startQuiz.addEventListener('click', letsPlay)
