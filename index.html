@@ -15,7 +15,7 @@
      
     <body>
 
-        <h1>Coding Quiz Game!</h1>
+        <h1 id="title">Coding Quiz Game!</h1>
 
         <form>
             <button class="button" id="startBtn">Ready to play?</button> 
@@ -23,9 +23,18 @@
         <section class="highScores">
             <button >Highscores</h2>
         </section>
-
+        
         <section class="scoreBoard">
-            <textarea id="playerEl" placeholder="name"></textarea>
+            <h2>High Scores!</h2>
+            <ul id="HSList">
+                <li>1st: <span id="svaedInit"></span>------------<span id="savedScore"> pts</span></li>
+                
+                
+            </ul>
+            <button class="button" id="backBtn">Back</button>
+        </section>
+        <section class="scoreSubmit">
+            <textarea id="playerEl" placeholder="Place Initials Here!"></textarea>
             <button class="saveBtn">Save</button>
         </section>
         

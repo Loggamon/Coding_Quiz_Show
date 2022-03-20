@@ -12,6 +12,7 @@ body {
 }
 
 body h1 {
+    display: visible;
     font-size: 100px;
     position: absolute;
     top: 30%;
@@ -22,7 +23,7 @@ body h1 {
 }
 
 .highScores {
-    display: none;
+    display: flex;
     flex-direction:row;
     align-items:center;
     position: absolute;
@@ -35,7 +36,9 @@ body h1 {
     box-shadow: 0 0 5px 5px darkslategrey
 }
 
-.scoreBoard {
+/*---------------------------------------------------------------------------------------*/
+
+.scoreSubmit {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -54,6 +57,51 @@ body h1 {
     border-radius: 10px;
     box-shadow: 0 0 10px 10px darkslategray;
 }
+
+.scoreBoard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:larger;
+    display:none; /* switch to flex to make visible */
+
+
+    flex-flow: column wrap;
+    align-content: stretch;
+    text-align: center;
+    width:75%;
+    font-size:larger;
+    background-color: yellow;
+    padding: 50px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 10px darkslategray;
+}
+
+.scoreBoard #backBtn {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin: 20px;
+    font-size: larger;
+    color: white;
+    background-color: darkslategrey;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px black;
+}
+
+.scoreBoard #backBtn:hover {
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 5px white;
+    transition: 2 ease;
+}
+
+/*--------------------------------------------------------------------------*/
+
 .countdown {
     display: none;
     flex-direction:column;
@@ -120,6 +168,7 @@ body h1 {
 }
 
 form #startBtn {
+    display: visible;
     font-size: larger;
     background-color: yellow;
     padding: 10px;

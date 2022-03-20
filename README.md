@@ -32,3 +32,9 @@ Instead, I have plugging away at the CSS, in order for everything to be ready ae
 Next, I have to link up the start button with the rest of the functions so that they actually swap through without refreshing the page.
 
 After a lot of head-scratching, i was finally able to get the multiple-choice questions to cycle through! now that the questions are done, the time is timing, and the style is picked out for the page, the last thing I'll need to do is the local Storage... tomorrow morning.
+
+## Day_Five
+For the most part, I have the page all done.
+the bad news, for some reason or another, my variables keep reading as "null" when i run the program.
+
+I think the places i need to brush up on are localStorage functions and making my querySelectors and GetElementBy Id aren't mixed up.
